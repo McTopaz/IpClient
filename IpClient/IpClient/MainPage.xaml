@@ -18,7 +18,7 @@
         <Label Text="IP Client" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="20" />
 
         <!-- Parameters -->
-        <Grid>
+        <Grid Margin="6,0,0,0">
 
             <Grid.Resources>
                 <misc:TextToIpAddress x:Key="TextToIP" />
@@ -36,43 +36,38 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="16" />
                 <ColumnDefinition Width="100" />
                 <ColumnDefinition Width="150" />
             </Grid.ColumnDefinitions>
 
             <!-- IP-address -->
-            <Image Source="/IpClient;component/Images/IpAddress.png" Grid.Row="0" Grid.Column="0" />
-            <Label Text="IP-address" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" />
-            <Entry Text="{Binding IpAddress, Converter={StaticResource TextToIP}}" Keyboard="Numeric" Grid.Row="0" Grid.Column="2" />
+            <Label Text="IP-address" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" />
+            <Entry Text="{Binding IpAddress, Converter={StaticResource TextToIP}}" Keyboard="Numeric" Grid.Row="0" Grid.Column="1" />
 
             <!-- Port -->
-            <Image Source="/IpClient;component/Images/NoImage.png" Grid.Row="2" Grid.Column="0" />
-            <Label Text="Port" FontAttributes="Bold" Grid.Row="2" Grid.Column="1" />
-            <Entry Text="{Binding Port, Converter={StaticResource TextToPort}}" Keyboard="Numeric" Grid.Row="2" Grid.Column="2" />
+            <Label Text="Port" FontAttributes="Bold" Grid.Row="2" Grid.Column="0" />
+            <Entry Text="{Binding Port, Converter={StaticResource TextToPort}}" Keyboard="Numeric" Grid.Row="2" Grid.Column="1" />
 
             <!-- Protocol -->
-            <Image Source="/IpClient;component/Images/NoImage.png" Grid.Row="4" Grid.Column="0" />
-            <Label Text="Protocol" FontAttributes="Bold" Grid.Row="4" Grid.Column="1" />
-            <Picker ItemsSource="{Binding Protocols}" SelectedItem="{Binding Protocol}" Grid.Row="4" Grid.Column="2" />
+            <Label Text="Protocol" FontAttributes="Bold" Grid.Row="4" Grid.Column="0" />
+            <Picker ItemsSource="{Binding Protocols}" SelectedItem="{Binding Protocol}" Grid.Row="4" Grid.Column="1" />
 
             <!-- Timeout -->
-            <Image Source="/IpClient;component/Images/IpAddress.png" Grid.Row="6" Grid.Column="0" />
-            <Label Text="Timeout [ms]" FontAttributes="Bold" Grid.Row="6" Grid.Column="1" />
-            <Entry Text="{Binding Timeout, Converter={StaticResource TextToTimeout}}" Keyboard="Numeric" Grid.Row="6" Grid.Column="2" />
+            <Label Text="Timeout [ms]" FontAttributes="Bold" Grid.Row="6" Grid.Column="0" />
+            <Entry Text="{Binding Timeout, Converter={StaticResource TextToTimeout}}" Keyboard="Numeric" Grid.Row="6" Grid.Column="1" />
         </Grid>
 
         <!-- Request -->
         <StackLayout Orientation="Vertical">
-            <Label Text="Request" FontAttributes="Bold" />
+            <Label Text="Request" FontAttributes="Bold" Margin="6,0,0,0" />
             <Entry />
         </StackLayout> 
         
         <!-- Button -->
-        <Button Text="Send and Receive" FontAttributes="Bold" />
+        <Button Text="Send and Receive" FontAttributes="Bold" Margin="6,0,6,0" />
 
         <!-- Response -->
-        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Margin="6,0,0,0">
             <Label Text="Response" FontAttributes="Bold" />
             <Label LineBreakMode="WordWrap" />
         </StackLayout>

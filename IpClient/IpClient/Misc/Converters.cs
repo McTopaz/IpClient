@@ -7,7 +7,7 @@ using System.Linq;
 
 using Xamarin.Forms;
 
-namespace MobileNetworkClient.Misc
+namespace IpClient.Misc
 {
     public class TextToIpAddress : IValueConverter
     {

@@ -2,6 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MobileNetworkClient.Misc
+namespace IpClient.Misc
 {
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace MobileNetworkClient.Misc
+namespace IpClient.Misc
 {
     class RelayCommand : ICommand
     {

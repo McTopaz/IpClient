@@ -22,6 +22,7 @@
 
             <Grid.Resources>
                 <misc:TextToIpAddress x:Key="TextToIP" />
+                <misc:TextToPort x:Key="TextToPort" />
             </Grid.Resources>
 
             <Grid.RowDefinitions>
@@ -47,7 +48,7 @@
             <!-- Port -->
             <Image Source="/IpClient;component/Images/NoImage.png" Grid.Row="2" Grid.Column="0" />
             <Label Text="Port" FontAttributes="Bold" Grid.Row="2" Grid.Column="1" />
-            <Entry Keyboard="Numeric" Grid.Row="2" Grid.Column="2" />
+            <Entry Text="{Binding Port, Converter={StaticResource TextToPort}}" Keyboard="Numeric" Grid.Row="2" Grid.Column="2" />
 
             <!-- Protocol -->
             <Image Source="/IpClient;component/Images/NoImage.png" Grid.Row="4" Grid.Column="0" />

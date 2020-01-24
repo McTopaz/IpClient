@@ -53,7 +53,7 @@
             <!-- Protocol -->
             <Image Source="/IpClient;component/Images/NoImage.png" Grid.Row="4" Grid.Column="0" />
             <Label Text="Protocol" FontAttributes="Bold" Grid.Row="4" Grid.Column="1" />
-            <Picker Grid.Row="4" Grid.Column="2" />
+            <Picker ItemsSource="{Binding Protocols}" SelectedItem="{Binding Protocol}" Grid.Row="4" Grid.Column="2" />
 
             <!-- Timeout -->
             <Image Source="/IpClient;component/Images/IpAddress.png" Grid.Row="6" Grid.Column="0" />

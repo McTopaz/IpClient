@@ -3,56 +3,68 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:misc="clr-namespace:IpClient.Misc"
              mc:Ignorable="d"
              x:Class="IpClient.MainPage">
 
     <StackLayout Orientation="Vertical">
 
-        <Label Text="IP Client" VerticalOptions="Start" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="20" />
+        <!-- Title -->
+        <Label Text="IP Client" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="20" />
 
+        <!-- Parameters -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="6" />
+                <RowDefinition />
+                <RowDefinition Height="6" />
+                <RowDefinition />
+                <RowDefinition Height="6" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="16" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="150" />
+            </Grid.ColumnDefinitions>
+
+            <!-- IP-address -->
+            <Image Source="/IpClient;component/Images/IpAddress.png" Grid.Row="0" Grid.Column="0" />
+            <Label Text="IP-address" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" />
+            <Entry Keyboard="Numeric" Grid.Row="0" Grid.Column="2" />
+
+            <!-- Port -->
+            <Image Source="/IpClient;component/Images/NoImage.png" Grid.Row="2" Grid.Column="0" />
+            <Label Text="Port" FontAttributes="Bold" Grid.Row="2" Grid.Column="1" />
+            <Entry Keyboard="Numeric" Grid.Row="2" Grid.Column="2" />
+
+            <!-- Protocol -->
+            <Image Source="/IpClient;component/Images/NoImage.png" Grid.Row="4" Grid.Column="0" />
+            <Label Text="Protocol" FontAttributes="Bold" Grid.Row="4" Grid.Column="1" />
+            <Picker Grid.Row="4" Grid.Column="2" />
+
+            <!-- Timeout -->
+            <Image Source="/IpClient;component/Images/IpAddress.png" Grid.Row="6" Grid.Column="0" />
+            <Label Text="Timeout [ms]" FontAttributes="Bold" Grid.Row="6" Grid.Column="1" />
+            <Entry Keyboard="Numeric" Grid.Row="6" Grid.Column="2" />
+        </Grid>
+
+        <!-- Request -->
         <StackLayout Orientation="Vertical">
+            <Label Text="Request" FontAttributes="Bold" />
+            <Entry />
+        </StackLayout> 
+        
+        <!-- Button -->
+        <Button Text="Send and Receive" FontAttributes="Bold" />
 
-        <!-- IP-address, port and protocol -->
-            <Grid VerticalOptions="Start">
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition Height="6" />
-                    <RowDefinition />
-                    <RowDefinition Height="6" />
-                    <RowDefinition />
-                    <RowDefinition Height="6" />
-                    <RowDefinition />
-                    <RowDefinition Height="6" />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="16" />
-                    <ColumnDefinition Width="100" />
-                    <ColumnDefinition Width="150" />
-                </Grid.ColumnDefinitions>
-
-                <!-- IP-address -->
-                <Image Source="/IpClient;component/Images/IpAddress.png" Grid.Row="0" Grid.Column="0" />
-                <Label Text="IP-address" Grid.Row="0" Grid.Column="1" />
-                <Entry Keyboard="Numeric" Grid.Row="0" Grid.Column="2" />
-
-                <!-- Port -->
-                <Image Source="/IpClient;component/Images/NoImage.png" Grid.Row="2" Grid.Column="0" />
-                <Label Text="Port" Grid.Row="2" Grid.Column="1" />
-                <Entry Keyboard="Numeric" Grid.Row="2" Grid.Column="2" />
-
-                <!-- Protocol -->
-                <Image Source="/IpClient;component/Images/NoImage.png" Grid.Row="4" Grid.Column="0" />
-                <Label Text="Protocol" Grid.Row="4" Grid.Column="1" />
-                <Picker Grid.Row="4" Grid.Column="2" />
-
-                <!-- Timeout -->
-                <Image Source="/IpClient;component/Images/IpAddress.png" Grid.Row="6" Grid.Column="0" />
-                <Label Text="Timeout [ms]" Grid.Row="6" Grid.Column="1" />
-                <Entry Keyboard="Numeric" Grid.Row="6" Grid.Column="2" />
-            </Grid>
-
+        <!-- Response -->
+        <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+            <Label Text="Response" FontAttributes="Bold" />
+            <Label LineBreakMode="WordWrap" />
         </StackLayout>
+
 
     </StackLayout>
 

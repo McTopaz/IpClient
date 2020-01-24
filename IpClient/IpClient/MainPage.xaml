@@ -23,6 +23,7 @@
             <Grid.Resources>
                 <misc:TextToIpAddress x:Key="TextToIP" />
                 <misc:TextToPort x:Key="TextToPort" />
+                <misc:TextToTimeout x:Key="TextToTimeout" />
             </Grid.Resources>
 
             <Grid.RowDefinitions>
@@ -58,7 +59,7 @@
             <!-- Timeout -->
             <Image Source="/IpClient;component/Images/IpAddress.png" Grid.Row="6" Grid.Column="0" />
             <Label Text="Timeout [ms]" FontAttributes="Bold" Grid.Row="6" Grid.Column="1" />
-            <Entry Keyboard="Numeric" Grid.Row="6" Grid.Column="2" />
+            <Entry Text="{Binding Timeout, Converter={StaticResource TextToTimeout}}" Keyboard="Numeric" Grid.Row="6" Grid.Column="2" />
         </Grid>
 
         <!-- Request -->

@@ -53,6 +53,28 @@ namespace IpClient.Misc
         }
     }
 
+    public class TextToTimeout : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var port = (uint)value;
+            return port.ToString();
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var str = value.ToString();
+            if (!uint.TryParse(str, out uint port))
+            {
+                return port;
+            }
+            else
+            {
+                return str;
+            }
+        }
+    }
+
     public class TextToBytes : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

@@ -80,7 +80,7 @@ namespace IpClient.Misc
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var request = value as IEnumerable<byte>;
-            var str = string.Join(" ", request);
+            var str = string.Join("", request.Select(b => System.Convert.ToString(b, 16)));
             return str;
         }
 
@@ -88,9 +88,16 @@ namespace IpClient.Misc
         {
             var str = value.ToString();
             str = str.Replace(" ", "");
-            return Enumerable.Range(0, str.Length)
+            foreach (var c in str)
+            {
+                var ok = int.TryParse(c.ToString(), NumberStyles.HexNumber, null, out int hex);
+                if (!ok) throw new ArgumentException("Invalid character");
+            }
+
+            var ret = Enumerable.Range(0, str.Length)
                      .Where(x => x % 2 == 0)
                      .Select(x => System.Convert.ToByte(str.Substring(x, 2), 16));
+            return ret;
         }
     }
 }

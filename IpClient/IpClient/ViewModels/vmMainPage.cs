@@ -17,7 +17,7 @@ namespace IpClient.ViewModels
         public string Protocol { get; set; } = "UDP";
         public uint Timeout { get; set; } = 3000;
         public IEnumerable<string> Protocols { get; private set; } = new string[] { "UDP", "TCP" };
-        public IEnumerable<byte> Request = new List<byte>();
+        public IEnumerable<byte> Request { get; set; } = new byte[] { 0xDE, 0xAD, 0xBE, 0xEF };
         public IEnumerable<byte> Response = new List<byte>();
 
         public RelayCommand Send { get; private set; } = new RelayCommand();

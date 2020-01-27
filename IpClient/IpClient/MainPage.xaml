@@ -68,7 +68,7 @@
         </StackLayout>
 
         <!-- Button -->
-        <Button Text="Send and Receive" FontAttributes="Bold" Margin="6,0,6,0" />
+        <Button Text="Send and Receive" IsEnabled="{Binding EnableSendAndRecive}" FontAttributes="Bold" Margin="6,0,6,0" />
 
         <!-- Response -->
         <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Margin="6,0,0,0">

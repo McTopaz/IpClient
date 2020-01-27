@@ -26,6 +26,7 @@ namespace IpClient.ViewModels
         public IEnumerable<string> Protocols { get; private set; } = new string[] { UDP, TCP };
         public string Request { get; set; } = "DEADBEEF";
         public Color RequestColor { get; set; }
+        public bool EnableSendAndRecive { get; set; } = false;
         public string Response { get; set; }
 
         public RelayCommand RequestChanged { get; private set; } = new RelayCommand();
@@ -43,6 +44,7 @@ namespace IpClient.ViewModels
                 .Select(i => Request[i])
                 .All(c => Uri.IsHexDigit(c));
             RequestColor = allHex ? Color.FromRgba(0, 0, 0, 0) : Color.Red;
+            EnableSendAndRecive = allHex;
         }
 
         private void SendAndReceive_Callback(object parameter = null)

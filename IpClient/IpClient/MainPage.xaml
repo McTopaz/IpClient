@@ -60,7 +60,7 @@
         <!-- Request -->
         <StackLayout Orientation="Vertical">
             <Label Text="Request" FontAttributes="Bold" Margin="6,0,0,0" />
-            <Entry Text="{Binding Request}">
+            <Entry Text="{Binding Request}" BackgroundColor="{Binding RequestColor}">
                 <Entry.Behaviors>
                     <misc:TextChangedBehavior Command="{Binding RequestChanged}" />
                 </Entry.Behaviors>

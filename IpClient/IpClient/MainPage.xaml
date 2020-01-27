@@ -11,7 +11,7 @@
     <ContentPage.BindingContext>
         <vm:vmMainPage />
     </ContentPage.BindingContext>
-    
+
     <StackLayout Orientation="Vertical">
 
         <!-- Title -->
@@ -59,13 +59,14 @@
 
         <!-- Request -->
         <StackLayout Orientation="Vertical">
-            <StackLayout.Resources>
-                <misc:TextToBytes x:Key="Text2Bytes" />
-            </StackLayout.Resources>
             <Label Text="Request" FontAttributes="Bold" Margin="6,0,0,0" />
-            <Entry Text="{Binding Request, Converter={StaticResource Text2Bytes}}" />
-        </StackLayout> 
-        
+            <Entry Text="{Binding Request}">
+                <Entry.Behaviors>
+                    <misc:TextChangedBehavior Command="{Binding RequestChanged}" />
+                </Entry.Behaviors>
+            </Entry>
+        </StackLayout>
+
         <!-- Button -->
         <Button Text="Send and Receive" FontAttributes="Bold" Margin="6,0,6,0" />
 

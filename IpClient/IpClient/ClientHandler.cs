@@ -10,9 +10,10 @@ namespace IpClient
 {
     static class ClientHandler
     {
-        public static string SendAndReceive(IPAddress ip, int port, string protocol, string request)
+        public static string SendAndReceive(IPAddress ip, int port, string protocol, string request, int timeout)
         {
             var client = LookupClient(ip, port, protocol);
+            client.Timeout = timeout;
             var req = Hex2Bytes(request);
             var res = SendAndReceive(client, req);
             var response = Bytes2Hex(res);

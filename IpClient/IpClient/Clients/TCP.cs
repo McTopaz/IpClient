@@ -41,6 +41,7 @@ namespace IpClient.Clients
 
         public void Send(byte[] request)
         {
+            Client.SendTimeout = Timeout;
             Stream.Write(request, 0, request.Length);
         }
 

@@ -73,7 +73,9 @@
         <!-- Response -->
         <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Margin="6,0,0,0">
             <Label Text="Response" FontAttributes="Bold" />
-            <Label Text="{Binding Response}" LineBreakMode="WordWrap" />
+            <ScrollView>
+                <Label Text="{Binding Response}" LineBreakMode="WordWrap" />
+            </ScrollView>
         </StackLayout>
 
 

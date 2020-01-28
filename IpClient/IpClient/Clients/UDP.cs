@@ -29,6 +29,7 @@ namespace IpClient.Clients
 
         public void Send(byte[] request)
         {
+            Client.Client.SendTimeout = Timeout;
             Client.Send(request, request.Length, Remote);
         }
 

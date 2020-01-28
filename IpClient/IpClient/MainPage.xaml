@@ -74,7 +74,7 @@
         <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Margin="6,0,0,0">
             <Label Text="Response" FontAttributes="Bold" />
             <ScrollView>
-                <Label Text="{Binding Response}" LineBreakMode="WordWrap" />
+                <Label Text="{Binding Response}" FontFamily="Consolas" LineBreakMode="WordWrap" />
             </ScrollView>
         </StackLayout>
 

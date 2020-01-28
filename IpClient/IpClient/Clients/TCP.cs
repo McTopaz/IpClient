@@ -21,7 +21,14 @@ namespace IpClient.Clients
 
         public void Connect()
         {
-            Client.Connect(Remote);
+            var result = Client.BeginConnect(Remote.Address, Remote.Port, null, null);
+            var success = result.AsyncWaitHandle.WaitOne(Timeout);
+            if (!success)
+            {
+                var msg = $"Unable to connect to {Remote.Address}:{Remote.Port}";
+                throw new WebException(msg, WebExceptionStatus.ConnectFailure);
+            }
+            Client.EndConnect(result);
             Stream = Client.GetStream();
         }
 

@@ -25,7 +25,7 @@ namespace IpClient.Clients
             var success = result.AsyncWaitHandle.WaitOne(Timeout);
             if (!success)
             {
-                var msg = $"Unable to connect to {Remote.Address}:{Remote.Port}";
+                var msg = $"Unable to connect to {Remote}";
                 throw new WebException(msg, WebExceptionStatus.ConnectFailure);
             }
             Client.EndConnect(result);

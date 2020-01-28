@@ -47,6 +47,7 @@ namespace IpClient.Clients
 
         public byte[] Receive()
         {
+            Client.ReceiveTimeout = Timeout;
             var data = new byte[1024];
             var num = Stream.Read(data, 0, data.Length);
             var response = data.Take(num).ToArray();

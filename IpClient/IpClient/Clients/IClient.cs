@@ -6,6 +6,7 @@ namespace IpClient.Clients
 {
     interface IClient
     {
+        int Timeout { get; set; }
         void Connect();
         void Disconnect();
         void Send(byte[] request);

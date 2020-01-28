@@ -12,6 +12,7 @@ namespace IpClient.Clients
         TcpClient Client { get; set; } = new TcpClient();
         IPEndPoint Remote { get; set; }
         NetworkStream Stream { get; set; }
+        public int Timeout { get; set; } = -1;
 
         public TCP(IPAddress ip, int port)
         {

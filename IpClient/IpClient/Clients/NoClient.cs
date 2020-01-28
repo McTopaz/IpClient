@@ -6,6 +6,8 @@ namespace IpClient.Clients
 {
     class NoClient : IClient
     {
+        public int Timeout { get; set; }
+
         public void Connect()
         {
         }

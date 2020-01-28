@@ -10,6 +10,7 @@ namespace IpClient.Clients
     {
         UdpClient Client { get; set; } = new UdpClient();
         IPEndPoint Remote { get; set; }
+        public int Timeout { get; set; } = -1;
 
         public UDP(IPAddress ip, int port)
         {

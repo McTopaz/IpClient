@@ -42,16 +42,32 @@ namespace IpClient.Clients
         public void Send(byte[] request)
         {
             Client.SendTimeout = Timeout;
-            Stream.Write(request, 0, request.Length);
+            try
+            {
+                Stream.Write(request, 0, request.Length);
+            }
+            catch
+            {
+                var msg = $"Unable to send to {Remote}";
+                throw new WebException(msg, WebExceptionStatus.SendFailure);
+            }
         }
 
         public byte[] Receive()
         {
             Client.ReceiveTimeout = Timeout;
-            var data = new byte[1024];
-            var num = Stream.Read(data, 0, data.Length);
-            var response = data.Take(num).ToArray();
-            return response;
+            try
+            {
+                var data = new byte[1024];
+                var num = Stream.Read(data, 0, data.Length);
+                var response = data.Take(num).ToArray();
+                return response;
+            }
+            catch
+            {
+                var msg = $"Unable to receive from {Remote}";
+                throw new WebException(msg, WebExceptionStatus.ReceiveFailure);
+            }
         }
     }
 }

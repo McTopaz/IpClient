@@ -59,7 +59,7 @@
 
         <!-- Request -->
         <StackLayout Orientation="Vertical">
-            <Label Text="Request" FontAttributes="Bold" Margin="6,0,0,0" />
+            <Label Text="Request (hex)" FontAttributes="Bold" Margin="6,0,0,0" />
             <Entry Text="{Binding Request}" BackgroundColor="{Binding RequestColor}">
                 <Entry.Behaviors>
                     <misc:TextChangedBehavior Command="{Binding RequestChanged}" />
@@ -72,7 +72,7 @@
 
         <!-- Response -->
         <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" Margin="6,0,0,0">
-            <Label Text="Response" FontAttributes="Bold" />
+            <Label Text="Response (hex)" FontAttributes="Bold" />
             <ScrollView>
                 <Label Text="{Binding Response}" FontFamily="Consolas" LineBreakMode="WordWrap" />
             </ScrollView>

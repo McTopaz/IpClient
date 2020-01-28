@@ -25,6 +25,10 @@ namespace IpClient
             {
                 return new UDP(ip, port);
             }
+            else if (protocol == ViewModels.vmMainPage.TCP)
+            {
+                return new TCP(ip, port);
+            }
             else
             {
                 return new NoClient();
@@ -58,7 +62,7 @@ namespace IpClient
                 {
                     line += Environment.NewLine;
                 }
-                line += $"{data[i].ToString("X2")}";
+                line += $"{data[i].ToString("X2")} ";
             }
             return line;
         }

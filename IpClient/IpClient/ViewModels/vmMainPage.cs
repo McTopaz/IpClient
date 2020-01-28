@@ -40,11 +40,13 @@ namespace IpClient.ViewModels
 
         private void RequestChanged_Callback(object parameter = null)
         {
+            var even = Request.Length % 2 == 0;
             var allHex = Enumerable.Range(0, Request.Length)
                 .Select(i => Request[i])
                 .All(c => Uri.IsHexDigit(c));
-            RequestColor = allHex ? Color.FromRgba(0, 0, 0, 0) : Color.Red;
-            EnableSendAndRecive = allHex;
+            var ok = even && allHex;
+            RequestColor = ok ? Color.FromRgba(0, 0, 0, 0) : Color.Red;
+            EnableSendAndRecive = ok;
         }
 
         private void SendAndReceive_Callback(object parameter = null)

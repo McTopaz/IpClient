@@ -35,6 +35,7 @@ namespace IpClient.Clients
 
         public byte[] Receive()
         {
+            Client.Client.ReceiveTimeout = Timeout;
             var remote = Remote;
             return Client.Receive(ref remote);
         }

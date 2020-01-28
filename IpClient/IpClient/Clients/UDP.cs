@@ -37,7 +37,7 @@ namespace IpClient.Clients
             catch
             {
                 var msg = $"Unable to send to {Remote}";
-                throw new WebException(msg, WebExceptionStatus.ReceiveFailure);
+                throw new WebException(msg, WebExceptionStatus.SendFailure);
             }
         }
 

@@ -22,7 +22,7 @@ namespace IpClient.ViewModels
         public IPAddress IpAddress { get; set; } = IPAddress.Parse("192.168.8.107");
         public ushort Port { get; set; } = 10001;
         public string Protocol { get; set; } = UDP;
-        public uint Timeout { get; set; } = 3000;
+        public int Timeout { get; set; } = 3000;
         public IEnumerable<string> Protocols { get; private set; } = new string[] { UDP, TCP };
         public string Request { get; set; } = "DEADBEEF";
         public Color RequestColor { get; set; }
@@ -51,7 +51,7 @@ namespace IpClient.ViewModels
 
         private void SendAndReceive_Callback(object parameter = null)
         {
-            Response = ClientHandler.SendAndReceive(IpAddress, Port, Protocol, Request);
+            Response = ClientHandler.SendAndReceive(IpAddress, Port, Protocol, Request, Timeout);
         }
     }
 }

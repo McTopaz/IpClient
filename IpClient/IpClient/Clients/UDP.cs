@@ -30,14 +30,30 @@ namespace IpClient.Clients
         public void Send(byte[] request)
         {
             Client.Client.SendTimeout = Timeout;
-            Client.Send(request, request.Length, Remote);
+            try
+            {
+                Client.Send(request, request.Length, Remote);
+            }
+            catch
+            {
+                var msg = $"Unable to send to {Remote}";
+                throw new WebException(msg, WebExceptionStatus.ReceiveFailure);
+            }
         }
 
         public byte[] Receive()
         {
             Client.Client.ReceiveTimeout = Timeout;
-            var remote = Remote;
-            return Client.Receive(ref remote);
+            try
+            {
+                var remote = Remote;
+                return Client.Receive(ref remote);
+            }
+            catch
+            {
+                var msg = $"Unable to receive from {Remote}";
+                throw new WebException(msg, WebExceptionStatus.ReceiveFailure);
+            }
         }
     }
 }

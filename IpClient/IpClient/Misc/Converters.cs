@@ -57,14 +57,14 @@ namespace IpClient.Misc
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var port = (uint)value;
+            var port = (int)value;
             return port.ToString();
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var str = value.ToString();
-            if (!uint.TryParse(str, out uint port))
+            if (!int.TryParse(str, out int port))
             {
                 return port;
             }

@@ -12,12 +12,19 @@ namespace IpClient
     {
         public static string SendAndReceive(IPAddress ip, int port, string protocol, string request, int timeout)
         {
-            var client = LookupClient(ip, port, protocol);
-            client.Timeout = timeout;
-            var req = Hex2Bytes(request);
-            var res = SendAndReceive(client, req);
-            var response = Bytes2Hex(res);
-            return response;
+            try
+            {
+                var client = LookupClient(ip, port, protocol);
+                client.Timeout = timeout;
+                var req = Hex2Bytes(request);
+                var res = SendAndReceive(client, req);
+                var response = Bytes2Hex(res);
+                return response;
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
         }
 
         private static IClient LookupClient(IPAddress ip, int port, string protocol)
@@ -47,9 +54,20 @@ namespace IpClient
         private static byte[] SendAndReceive(IClient client, byte[] request)
         {
             client.Connect();
-            client.Send(request);
-            var data = client.Receive();
-            client.Disconnect();
+            var data = new byte[0];
+            try
+            {
+                client.Send(request);
+                data = client.Receive();
+            }
+            catch (Exception e)
+            {
+                throw e;    // Rethrow to access the pass the exception's message to the app's response-field.
+            }
+            finally
+            {
+                client.Disconnect();
+            }
             return data;
         }
 

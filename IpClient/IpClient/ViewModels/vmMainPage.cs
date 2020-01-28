@@ -19,14 +19,14 @@ namespace IpClient.ViewModels
         public const string UDP = "UDP";
         public const string TCP = "TCP";
 
-        public IPAddress IpAddress { get; set; } = IPAddress.Broadcast;
+        public IPAddress IpAddress { get; set; } = IPAddress.Parse("192.168.8.107");
         public ushort Port { get; set; } = 10001;
         public string Protocol { get; set; } = UDP;
         public uint Timeout { get; set; } = 3000;
         public IEnumerable<string> Protocols { get; private set; } = new string[] { UDP, TCP };
         public string Request { get; set; } = "DEADBEEF";
         public Color RequestColor { get; set; }
-        public bool EnableSendAndRecive { get; set; } = false;
+        public bool EnableSendAndRecive { get; set; } = true;
         public string Response { get; set; }
 
         public RelayCommand RequestChanged { get; private set; } = new RelayCommand();

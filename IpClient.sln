@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IpClient.Android", "IpClient\IpClient.Android\IpClient.Android.csproj", "{F8902378-BFFE-4C13-8C6B-0790778036FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IpClient", "IpClient\IpClient\IpClient.csproj", "{6F213E9F-FA0B-4F01-AF94-68D4C0A0F6B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IpClient", "IpClient\IpClient\IpClient.csproj", "{6F213E9F-FA0B-4F01-AF94-68D4C0A0F6B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
